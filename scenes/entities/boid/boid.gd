@@ -7,12 +7,16 @@ const MAX_FORCE: float = 1.0 # Inercy
 # Weights (rules)
 const W_SEPARATION: float = 3.3
 const W_ALIGNMENT: float = 3.3
-const W_COHESION: float = 3.3
+const W_COHESION: float = 6
 
 # Private
 var _velocity: Vector3
 var _perception_radius: float
 var _neighbors: Array = []
+var _context_grid: SpatialGrid
+
+func set_context_grid(grid: SpatialGrid):
+	_context_grid = grid
 
 # Dependency Injection
 func setup(start_pos: Vector3, start_vel: Vector3, perception: float) -> void:
@@ -23,8 +27,9 @@ func setup(start_pos: Vector3, start_vel: Vector3, perception: float) -> void:
 
 # Life Cycle
 func _physics_process(delta: float) -> void:
-	# Getting neighbors
-	_neighbors = get_overlapping_areas()
+	if _context_grid:
+		_neighbors = _context_grid._get_nearby_entities(global_position)
+		_neighbors.erase(self)
 	
 	# Acceleration
 	var acceleration: Vector3 = Vector3.ZERO

@@ -7,6 +7,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_bbqk7"]
 
 [node name="Boid" type="Area3D" unique_id=1680960529]
+monitoring = false
 script = ExtResource("1_bbqk7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=969228927]
