@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://duvp3vwun7der"]
+
+[ext_resource type="PackedScene" uid="uid://blpinudswdbhi" path="res://scenes/main/flock_manager/flock_manager.tscn" id="1_hyk8p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
+
+[sub_resource type="Sky" id="Sky_hyk8p"]
+sky_material = SubResource("ProceduralSkyMaterial_vom5j")
+
+[sub_resource type="Environment" id="Environment_iuonh"]
+background_mode = 2
+sky = SubResource("Sky_hyk8p")
+
+[node name="Main" type="Node3D" unique_id=538035802]
+
+[node name="FlockManager" parent="." unique_id=817338267 instance=ExtResource("1_hyk8p")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1989911847]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=139246752]
+environment = SubResource("Environment_iuonh")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2112517419]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, 0)

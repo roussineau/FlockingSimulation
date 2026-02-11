@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://blpinudswdbhi"]
+
+[ext_resource type="Script" uid="uid://di1ypci2fcj5w" path="res://scenes/main/flock_manager/flock_manager.gd" id="1_gl3qk"]
+[ext_resource type="PackedScene" uid="uid://nhrfgd1uuwfy" path="res://scenes/entities/boid/boid.tscn" id="2_5ksjs"]
+
+[node name="FlockManager" type="Node3D" unique_id=817338267]
+script = ExtResource("1_gl3qk")
+boid_scene = ExtResource("2_5ksjs")
