@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="FlockingSimulation"
+run/main_scene="uid://duvp3vwun7der"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

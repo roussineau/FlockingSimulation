@@ -26,7 +26,7 @@ func clear():
 	_buckets.clear()
 
 # Checking 3x3x3 box environment
-func _get_nearby_entities(pos: Vector3) -> Array:
+func get_nearby_entities(pos: Vector3) -> Array:
 	var center_coords = _get_cell_coords(pos)
 	var res = []
 	for x in range(center_coords.x - 1, center_coords.x + 2):
