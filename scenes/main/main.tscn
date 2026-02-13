@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://blpinudswdbhi" path="res://scenes/main/flock_manager/flock_manager.tscn" id="1_hyk8p"]
 
+[sub_resource type="PrismMesh" id="PrismMesh_hyk8p"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
 
 [sub_resource type="Sky" id="Sky_hyk8p"]
@@ -14,6 +16,7 @@ sky = SubResource("Sky_hyk8p")
 [node name="Main" type="Node3D" unique_id=538035802]
 
 [node name="FlockManager" parent="." unique_id=817338267 instance=ExtResource("1_hyk8p")]
+mesh_source = SubResource("PrismMesh_hyk8p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1989911847]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
