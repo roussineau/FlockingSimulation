@@ -73,7 +73,7 @@ func _update_boids_logic(delta: float) -> void:
 		_grid.add_entity(i, _positions[i])
 	
 	var group_task_id = WorkerThreadPool.add_group_task(
-		Callable(self, "_process_boid_task"),
+		Callable(self, "_process_boid_task").bind(delta),
 		amount,
 		-1,
 		true
@@ -123,7 +123,7 @@ func _calculate_flocking_force(index: int, pos: Vector3, neighbor_indexes: Array
 	return total_force * INERCY
 
 
-func _process_boid_task(boid_index: int) -> void:
+func _process_boid_task(boid_index: int, delta: float) -> void:
 	var current_pos = _positions[boid_index]
 	var current_vel = _velocities[boid_index]
 	var neighbor_indexes = _grid.get_nearby_entities(current_pos)
@@ -137,10 +137,10 @@ func _process_boid_task(boid_index: int) -> void:
 		var dir_to_center: Vector3 = -current_pos.normalized()
 		force += dir_to_center * return_strength 
 	
-	var delta: float = get_process_delta_time()
 	current_vel += force * delta
 	if current_vel.length_squared() > MAX_SPEED * MAX_SPEED:
 		current_vel = current_vel.normalized() * MAX_SPEED
+	
 	current_pos += current_vel * delta
 	
 	_velocities[boid_index] = current_vel
